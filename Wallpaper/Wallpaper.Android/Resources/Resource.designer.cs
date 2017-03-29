@@ -87,10 +87,13 @@ namespace Wallpaper.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int ic_save_black_24dp = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int splash = 2130837505;
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int splash = 2130837506;
 			
 			static Drawable()
 			{
@@ -110,6 +113,12 @@ namespace Wallpaper.Droid
 			
 			// aapt resource value: 0x7f040001
 			public const int MvxBindingTagUnique = 2130968577;
+			
+			// aapt resource value: 0x7f040003
+			public const int menu_save = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int toolbar = 2130968578;
 			
 			static Id()
 			{
@@ -131,7 +140,13 @@ namespace Wallpaper.Droid
 			public const int MainView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int SplashScreen = 2130903042;
+			public const int OneImageView = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int SplashScreen = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int Toolbar = 2130903044;
 			
 			static Layout()
 			{
@@ -139,6 +154,22 @@ namespace Wallpaper.Droid
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int top_menus = 2131165184;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

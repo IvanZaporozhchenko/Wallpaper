@@ -12,6 +12,6 @@
         android:horizontalSpacing="5dp"        
         android:gravity="center"
         android:stretchMode="columnWidth"
-        local:MvxBind="ItemsSource Images"
+        local:MvxBind="ItemsSource Images; ItemClick ImageChooseCommand"
         local:MvxItemTemplate="@layout/image_item" />
 </LinearLayout>

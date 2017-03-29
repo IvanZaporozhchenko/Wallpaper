@@ -183,25 +183,33 @@ namespace Wallpaper.Services.Implementations
             "https://pp.vk.me/c629324/v629324456/1f02a/0ayszbUGOVY.jpg"
         };
 
-        public IEnumerable<string> GetImageUrls(int screenWidth, int screenHeight)
+        private IScreenService _screenService;
+
+        public VkImageService(IScreenService screenService)
         {
-            var result = new List<string>();
+            _screenService = screenService;
+        }
+
+        public IEnumerable<string> GetImageUrls()
+        {            
+            var screenWidth = _screenService.Width;
+            var screenHeight = _screenService.Height;
             if (screenWidth == 480 && screenHeight == 800)
             {
-                result.AddRange(_images480X800);
+                return _images480X800;
             }
 
             if (screenWidth == 768 && screenHeight == 1280)
             {
-                result.AddRange(_images768x1280);
+                return _images768x1280;
             }
 
             if (screenWidth == 720 && screenHeight == 1280)
             {
-                result.AddRange(_images720x1280);
+                return _images720x1280;
             }
 
-            return result;
+            return new List<string>();
         }
     }
 

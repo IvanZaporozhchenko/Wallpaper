@@ -4,6 +4,6 @@ namespace Wallpaper.Services
 {
     public interface IImageService
     {
-        IEnumerable<string> GetImageUrls(int screenWidth, int screenHeight);
+        IEnumerable<string> GetImageUrls();
     }
 }

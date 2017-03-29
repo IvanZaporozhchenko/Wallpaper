@@ -2,8 +2,9 @@ using Android.Content;
 using MvvmCross.Droid.Platform;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Platform;
-using MvvmCross.Binding.Bindings.Target.Construction;
-using MvvmCross.Binding.Droid.Views;
+using MvvmCross.Platform;
+using Wallpaper.Services.Interfaces;
+using Wallpaper.Droid.Services;
 
 namespace Wallpaper.Droid
 {
@@ -23,12 +24,12 @@ namespace Wallpaper.Droid
             return new DebugTrace();
         }
 
-        protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
+        protected override void InitializeLastChance()
         {
-            registry.RegisterCustomBindingFactory<MvxImageView>(
-                    "ImageSize",
-                    v => new ImageViewSizeCustomBinding(v));
-            base.FillTargetFactories(registry);
+            base.InitializeLastChance();
+            Mvx.RegisterType<IImageDownloaderService, AndroidImageDownloaderService>();
+            Mvx.RegisterType<IImageGalleryService, AndroidImageGalerySaverService>();
+            Mvx.RegisterType<IUserInteractionService, AndroidUserInteractionService>();
         }
     }
 }
