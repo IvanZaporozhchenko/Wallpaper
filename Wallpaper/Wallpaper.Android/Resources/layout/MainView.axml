@@ -4,14 +4,14 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-  <Mvx.MvxGridView
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:numColumns="4"
-      android:verticalSpacing="4dp"
-      android:horizontalSpacing="4dp"
-      android:stretchMode="columnWidth"
-      android:gravity="center"
-      local:MvxBind="ItemsSource Images"
-      local:MvxItemTemplate="@layout/image_item" />
+    <Mvx.MvxGridView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:numColumns="4"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="5dp"        
+        android:gravity="center"
+        android:stretchMode="columnWidth"
+        local:MvxBind="ItemsSource Images"
+        local:MvxItemTemplate="@layout/image_item" />
 </LinearLayout>

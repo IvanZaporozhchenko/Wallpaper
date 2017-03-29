@@ -2,6 +2,8 @@ using Android.Content;
 using MvvmCross.Droid.Platform;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Platform;
+using MvvmCross.Binding.Bindings.Target.Construction;
+using MvvmCross.Binding.Droid.Views;
 
 namespace Wallpaper.Droid
 {
@@ -19,6 +21,14 @@ namespace Wallpaper.Droid
         protected override IMvxTrace CreateDebugTrace()
         {
             return new DebugTrace();
+        }
+
+        protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
+        {
+            registry.RegisterCustomBindingFactory<MvxImageView>(
+                    "ImageSize",
+                    v => new ImageViewSizeCustomBinding(v));
+            base.FillTargetFactories(registry);
         }
     }
 }
