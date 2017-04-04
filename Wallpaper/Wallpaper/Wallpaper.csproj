@@ -33,12 +33,15 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Implementations\OneImageActionBarService.cs" />
     <Compile Include="Services\Implementations\VkImageService.cs" />
     <Compile Include="Services\Interfaces\IImageDownloaderService.cs" />
     <Compile Include="Services\Interfaces\IImageGalleryService.cs" />
     <Compile Include="Services\Interfaces\IImageService.cs" />
+    <Compile Include="Services\Interfaces\IOneImageActionBarService.cs" />
     <Compile Include="Services\Interfaces\IUserInteractionService.cs" />
     <Compile Include="Services\Interfaces\IScreenService.cs" />
+    <Compile Include="Services\Interfaces\IWallpaperService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ImageItemViewModel.cs" />
     <Compile Include="ViewModels\OneImageViewModel.cs" />

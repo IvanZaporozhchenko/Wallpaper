@@ -1,5 +1,6 @@
 using Android.App;
 using Android.Content;
+using Android.Util;
 using System;
 using System.IO;
 using Wallpaper.Services.Interfaces;
@@ -14,8 +15,9 @@ namespace Wallpaper.Droid.Services
             {
                 return File.Exists(getFullPath(fileName));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log.Error("Wallpaper", ex.Message);
             }
 
             return true;
@@ -33,6 +35,7 @@ namespace Wallpaper.Droid.Services
             }
             catch (Exception ex)
             {
+                Log.Error("Wallpaper", ex.Message);
             }
         }
 

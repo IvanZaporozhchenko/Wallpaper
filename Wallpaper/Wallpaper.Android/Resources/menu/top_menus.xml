@@ -4,5 +4,10 @@
        android:id="@+id/menu_save"
        android:icon="@drawable/ic_save_black_24dp"       
        android:showAsAction="ifRoom"
-       android:title="Save" />  
+       android:title="Save" />
+  <item
+       android:id="@+id/menu_setwallpaper"
+       android:icon="@drawable/ic_wallpaper_black_24dp"
+       android:showAsAction="ifRoom"
+       android:title="Set Wallpaper" />
 </menu>

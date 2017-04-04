@@ -31,6 +31,7 @@ namespace Wallpaper.Droid
             Mvx.RegisterType<IImageGalleryService, AndroidImageGaleryService>();
             Mvx.RegisterType<IUserInteractionService, AndroidUserInteractionService>();
             Mvx.RegisterType<IScreenService, AndroidScreenService>();
+            Mvx.RegisterType<IWallpaperService, AndroidWallpaperService>();
         }
     }
 }

@@ -67,6 +67,11 @@ namespace Wallpaper.Droid.Views
                         ViewModel.SaveImageCommand.Execute(null);
                         return true;
                     }
+                case Resource.Id.menu_setwallpaper:
+                    {
+                        ViewModel.SetWallpaperCommand.Execute(null);
+                        return true;
+                    }
             }
 
             return base.OnOptionsItemSelected(item);

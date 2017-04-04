@@ -90,10 +90,13 @@ namespace Wallpaper.Droid
 			public const int ic_save_black_24dp = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int Icon = 2130837505;
+			public const int ic_wallpaper_black_24dp = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int splash = 2130837506;
+			public const int Icon = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int splash = 2130837507;
 			
 			static Drawable()
 			{
@@ -116,6 +119,9 @@ namespace Wallpaper.Droid
 			
 			// aapt resource value: 0x7f040003
 			public const int menu_save = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int menu_setwallpaper = 2130968580;
 			
 			// aapt resource value: 0x7f040002
 			public const int toolbar = 2130968578;

@@ -1,20 +1,24 @@
 ﻿using MvvmCross.Core.ViewModels;
 using System.Windows.Input;
 using Wallpaper.Services.Interfaces;
+using System;
 
 namespace Wallpaper.ViewModels
 {
     public class OneImageViewModel : MvxViewModel
-    {
-        private readonly IImageGalleryService _imageGalleryService;
+    {        
         private readonly IImageDownloaderService _imageDownloaderService;
         private readonly IUserInteractionService _userInteractionService;
+        private readonly IOneImageActionBarService _oneImageActionBarService;
 
         private string _imageUrl;
         private int _index;
 
         private ICommand _saveImageCommand;
-        public ICommand SaveImageCommand => _saveImageCommand;      
+        public ICommand SaveImageCommand => _saveImageCommand;
+
+        private ICommand _setWallpaperCommand;
+        public ICommand SetWallpaperCommand => _setWallpaperCommand;
 
         private byte[] _imageData;
         public byte[] ImageData
@@ -44,19 +48,23 @@ namespace Wallpaper.ViewModels
             }
         }        
 
-        public OneImageViewModel(IImageGalleryService imageGalleryService, IImageDownloaderService imageDownloaderService, IUserInteractionService userInteractionService)
-        {
-            _imageGalleryService = imageGalleryService;
+        public OneImageViewModel(
+            IImageDownloaderService imageDownloaderService,
+            IUserInteractionService userInteractionService,
+            IOneImageActionBarService oneImageActionBarService)
+        {            
             _imageDownloaderService = imageDownloaderService;
             _userInteractionService = userInteractionService;
+            _oneImageActionBarService = oneImageActionBarService;
             _imageDownloaderService.DownloadImageCompleted += ImageDownloaded;
         }
 
         public override void Start()
         {
             _saveImageCommand = _saveImageCommand ?? new MvxCommand(SaveImage);
+            _setWallpaperCommand = _setWallpaperCommand ?? new MvxCommand(SetWallpaper);
             base.Start();
-        }
+        }       
 
         public void Init(string imageUrl, int index)
         {
@@ -65,29 +73,25 @@ namespace Wallpaper.ViewModels
             _imageDownloaderService.StartDownloadImageFromWeb(_imageUrl);
         }
 
+        private void SetWallpaper()
+        {
+            _oneImageActionBarService.SetWallpaper(ImageData);
+            _userInteractionService.ShowMessage("Wallpaper is setted!");
+        }
+
         private void ImageDownloaded(object sender, DownloadCompletedEventHandlerArgs args)
         {
             ImageData = args.ResultStream.ToArray();
-            IsSaveImageEnabled = !_imageGalleryService.IsImageExist(GetImageFileName());            
+            IsSaveImageEnabled = !_oneImageActionBarService.IsImageExist(_index);            
         }
 
         private void SaveImage()
         {
-            string fileName = GetImageFileName();
-            if (!_imageGalleryService.IsImageExist(fileName))
+            if (_oneImageActionBarService.SaveImage(ImageData, _index))
             {
-                _imageGalleryService.SaveImageToLibrary(fileName, ImageData);
                 IsSaveImageEnabled = false;
                 _userInteractionService.ShowMessage("Image saved!");
             }
-        }
-
-        /// <summary>
-        /// Get image file name in the system. It will be like Christmas<index>.jpg
-        /// </summary>        
-        private string GetImageFileName()
-        {
-            return $"Christmas{_index}.jpg";
-        }
+        }       
     }
 }
