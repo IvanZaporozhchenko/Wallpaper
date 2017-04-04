@@ -28,8 +28,9 @@ namespace Wallpaper.Droid
         {
             base.InitializeLastChance();
             Mvx.RegisterType<IImageDownloaderService, AndroidImageDownloaderService>();
-            Mvx.RegisterType<IImageGalleryService, AndroidImageGalerySaverService>();
+            Mvx.RegisterType<IImageGalleryService, AndroidImageGaleryService>();
             Mvx.RegisterType<IUserInteractionService, AndroidUserInteractionService>();
+            Mvx.RegisterType<IScreenService, AndroidScreenService>();
         }
     }
 }

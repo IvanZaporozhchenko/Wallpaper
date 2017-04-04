@@ -6,7 +6,7 @@ using Wallpaper.Services.Interfaces;
 
 namespace Wallpaper.Droid.Services
 {
-    public class AndroidImageGalerySaverService : IImageGalleryService
+    public class AndroidImageGaleryService : IImageGalleryService
     {
         public bool IsImageExist(string fileName)
         {

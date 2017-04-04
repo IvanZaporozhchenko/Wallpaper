@@ -106,7 +106,8 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AndroidImageDownloaderService.cs" />
-    <Compile Include="Services\AndroidImageGalerySaverService.cs" />
+    <Compile Include="Services\AndroidImageGaleryService.cs" />
+    <Compile Include="Services\AndroidScreenService.cs" />
     <Compile Include="Services\AndroidUserInteraction.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
@@ -121,7 +122,9 @@
     <AndroidResource Include="Resources\layout\SplashScreen.axml" />
     <AndroidResource Include="Resources\layout\MainView.axml" />
     <AndroidResource Include="Resources\layout\image_item.axml" />
-    <AndroidResource Include="Resources\layout\OneImageView.axml" />
+    <AndroidResource Include="Resources\layout\OneImageView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

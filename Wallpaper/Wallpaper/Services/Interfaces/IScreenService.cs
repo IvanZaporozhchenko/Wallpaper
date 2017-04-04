@@ -1,5 +1,5 @@
-﻿namespace Wallpaper.Services
-{
+﻿namespace Wallpaper.Services.Interfaces
+{   
     public interface IScreenService
     {
         /// <summary>
@@ -11,5 +11,5 @@
         /// Width of current device screen
         /// </summary>
         int Width { get; }
-    }
+    }  
 }

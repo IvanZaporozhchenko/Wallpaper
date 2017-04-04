@@ -77,6 +77,7 @@ namespace Wallpaper.ViewModels
             if (!_imageGalleryService.IsImageExist(fileName))
             {
                 _imageGalleryService.SaveImageToLibrary(fileName, ImageData);
+                IsSaveImageEnabled = false;
                 _userInteractionService.ShowMessage("Image saved!");
             }
         }

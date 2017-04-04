@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Wallpaper.Services.Interfaces;
 
 namespace Wallpaper.Services.Implementations
 {
@@ -209,7 +211,13 @@ namespace Wallpaper.Services.Implementations
                 return _images720x1280;
             }
 
-            return new List<string>();
+            var aspectRatio = (double) screenHeight / (double) screenWidth;
+            if (Math.Abs(aspectRatio - 1.667) > Math.Abs(aspectRatio - 1.778))
+            {
+                return _images720x1280;
+            }
+            
+            return _images768x1280;                     
         }
     }
 

@@ -7,10 +7,11 @@ using MvvmCross.Droid.Views;
 using Wallpaper.ViewModels;
 using MvvmCross.Platform.WeakSubscription;
 using Android.Graphics;
+using Android.Content.PM;
 
 namespace Wallpaper.Droid.Views
 {
-    [Activity]
+    [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class OneImageView : MvxActivity<OneImageViewModel>
     {
         private MvxNotifyPropertyChangedEventSubscription _eventSubscription;

@@ -5,12 +5,14 @@ using MvvmCross.Droid.Views;
 namespace Wallpaper.Droid
 {
     [Activity(
-        Label = "Wallpaper.Droid"
+        Label = ""
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"
         , NoHistory = true
-        , ScreenOrientation = ScreenOrientation.Portrait)]
+        , ScreenOrientation = ScreenOrientation.Portrait
+        , ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize
+        )]
     public class SplashScreen : MvxSplashScreenActivity
     {
         public SplashScreen()
