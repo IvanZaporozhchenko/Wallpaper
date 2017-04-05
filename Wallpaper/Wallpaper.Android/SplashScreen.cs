@@ -5,7 +5,7 @@ using MvvmCross.Droid.Views;
 namespace Wallpaper.Droid
 {
     [Activity(
-        Label = ""
+        Label = "Merry Christmas Wallpaper HD+"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"
