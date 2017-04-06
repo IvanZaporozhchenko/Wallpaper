@@ -1,11 +1,12 @@
 ﻿using MvvmCross.Core.ViewModels;
 using System.Windows.Input;
 using Wallpaper.Services.Interfaces;
-using System;
+using System.Linq;
+using Wallpaper.Infrastructure;
 
 namespace Wallpaper.ViewModels
 {
-    public class OneImageViewModel : MvxViewModel
+    public class OneImageViewModel : BaseInitViewModel<ImageParameters>
     {        
         private readonly IImageDownloaderService _imageDownloaderService;
         private readonly IUserInteractionService _userInteractionService;
@@ -64,13 +65,13 @@ namespace Wallpaper.ViewModels
             _saveImageCommand = _saveImageCommand ?? new MvxCommand(SaveImage);
             _setWallpaperCommand = _setWallpaperCommand ?? new MvxCommand(SetWallpaper);
             base.Start();
-        }       
+        }
 
-        public void Init(string imageUrl, int index)
+        protected override void RealInit(ImageParameters parameter)
         {
-            _imageUrl = imageUrl;
-            _index = index;
-            _imageDownloaderService.StartDownloadImageFromWeb(_imageUrl);
+            ImageData = parameter.ImageData.ToArray();
+            _index = parameter.Index;
+            IsSaveImageEnabled = !_oneImageActionBarService.IsImageExist(_index);
         }
 
         private void SetWallpaper()

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Wallpaper.ViewModels;
 
 namespace Wallpaper.Services
 {
     public interface IImageService
     {
-        IEnumerable<string> GetImageUrls();
+        IEnumerable<ImageItemViewModel> GetImageViewModels();
     }
 }

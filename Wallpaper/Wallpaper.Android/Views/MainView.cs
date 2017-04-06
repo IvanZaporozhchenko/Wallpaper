@@ -13,5 +13,5 @@ namespace Wallpaper.Droid.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.MainView);
         }
-    }
+    }    
 }

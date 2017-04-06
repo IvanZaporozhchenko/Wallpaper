@@ -2,11 +2,12 @@ using MvvmCross.Core.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using Wallpaper.Infrastructure;
 using Wallpaper.Services;
 
 namespace Wallpaper.ViewModels
 {
-    public class MainViewModel : MvxViewModel
+    public class MainViewModel : BaseViewModel
     {        
         private readonly IImageService _imageUrlGetter;
         private List<ImageItemViewModel> _images;
@@ -15,9 +16,7 @@ namespace Wallpaper.ViewModels
         public MainViewModel(IImageService imageUrlGetter)
         {            
             _imageUrlGetter = imageUrlGetter;
-            Images = _imageUrlGetter.GetImageUrls()
-                .Select(x => new ImageItemViewModel {ImageUrl = x})
-                .ToList();
+            Images = _imageUrlGetter.GetImageViewModels().ToList();
         }
 
         public List<ImageItemViewModel> Images
@@ -46,10 +45,10 @@ namespace Wallpaper.ViewModels
 
         private void ChooseImage(ImageItemViewModel imageItemViewModel)
         {
-            ShowViewModel<OneImageViewModel>(new
+            ShowViewModel<OneImageViewModel, ImageParameters>(new ImageParameters
                 {
-                    imageUrl = imageItemViewModel.ImageUrl,
-                    index = Images.IndexOf(imageItemViewModel)
+                    ImageData = imageItemViewModel.ImageData,
+                    Index = Images.IndexOf(imageItemViewModel)
                 });
         }
     }

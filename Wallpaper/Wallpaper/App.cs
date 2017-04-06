@@ -9,7 +9,12 @@ namespace Wallpaper
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
-                .RegisterAsLazySingleton();
+                .RegisterAsDynamic();
+
+            CreatableTypes()
+                .EndingWith("Factory")
+                .AsInterfaces()
+                .RegisterAsDynamic();            
 
             RegisterAppStart<ViewModels.MainViewModel>();
         }

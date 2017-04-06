@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Wallpaper.Services.Interfaces;
+using Wallpaper.ViewModels;
 
 namespace Wallpaper.Services.Implementations
 {
@@ -185,39 +187,42 @@ namespace Wallpaper.Services.Implementations
             "https://pp.vk.me/c629324/v629324456/1f02a/0ayszbUGOVY.jpg"
         };
 
-        private IScreenService _screenService;
+        private readonly IScreenService _screenService;
 
-        public VkImageService(IScreenService screenService)
+        private readonly IImageItemViewModelFactory _imageItemViewModelFactory;
+
+        public VkImageService(IScreenService screenService, IImageItemViewModelFactory imageItemViewModelFactory)
         {
             _screenService = screenService;
+            _imageItemViewModelFactory = imageItemViewModelFactory;
         }
 
-        public IEnumerable<string> GetImageUrls()
+        public IEnumerable<ImageItemViewModel> GetImageViewModels()
         {            
             var screenWidth = _screenService.Width;
             var screenHeight = _screenService.Height;
             if (screenWidth == 480 && screenHeight == 800)
             {
-                return _images480X800;
+                return _images480X800.Select(i => _imageItemViewModelFactory.Create(i));
             }
 
             if (screenWidth == 768 && screenHeight == 1280)
             {
-                return _images768x1280;
+                return _images768x1280.Select(i => _imageItemViewModelFactory.Create(i));
             }
 
             if (screenWidth == 720 && screenHeight == 1280)
             {
-                return _images720x1280;
+                return _images720x1280.Select(i => _imageItemViewModelFactory.Create(i));
             }
 
             var aspectRatio = (double) screenHeight / (double) screenWidth;
             if (Math.Abs(aspectRatio - 1.667) > Math.Abs(aspectRatio - 1.778))
             {
-                return _images720x1280;
+                return _images720x1280.Select(i => _imageItemViewModelFactory.Create(i));
             }
             
-            return _images768x1280;                     
+            return _images768x1280.Select(i => _imageItemViewModelFactory.Create(i));
         }
     }
 
