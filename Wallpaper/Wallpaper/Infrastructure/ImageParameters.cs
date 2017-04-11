@@ -2,7 +2,7 @@
 {
     public class ImageParameters
     {
-        public byte[] ImageData { get; set; }
+        public string ImageUrl { get; set; }
 
         public int Index { get; set; }
     }

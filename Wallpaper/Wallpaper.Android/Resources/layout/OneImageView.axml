@@ -9,7 +9,7 @@
         layout="@layout/toolbar" />
     <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"     
+        android:layout_height="fill_parent"     
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
         local:MvxBind="Bitmap ImageData,Converter=InMemoryImage"/>

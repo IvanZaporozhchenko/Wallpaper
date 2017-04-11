@@ -14,7 +14,8 @@ namespace Wallpaper.Droid.Views
     [Activity(ScreenOrientation = ScreenOrientation.Portrait)]
     public class OneImageView : MvxActivity<OneImageViewModel>
     {
-        private MvxNotifyPropertyChangedEventSubscription _eventSubscription;
+        private MvxNotifyPropertyChangedEventSubscription _eventSubscriptionIsSaveImageEnabled;
+        private MvxNotifyPropertyChangedEventSubscription _eventSubscriptionIsSetWallpaperEnabled;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -22,7 +23,8 @@ namespace Wallpaper.Droid.Views
             SetContentView(Resource.Layout.OneImageView);
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
-            _eventSubscription = ViewModel.WeakSubscribe(() => ViewModel.IsSaveImageEnabled, IsSaveImageEnabledChanged);            
+            _eventSubscriptionIsSaveImageEnabled = ViewModel.WeakSubscribe(() => ViewModel.IsSaveImageEnabled, ActionBarChanged);
+            _eventSubscriptionIsSetWallpaperEnabled = ViewModel.WeakSubscribe(() => ViewModel.IsSetWallpaperEnabled, ActionBarChanged);
         }
 
         protected override void Dispose(bool disposing)
@@ -30,7 +32,7 @@ namespace Wallpaper.Droid.Views
             base.Dispose(disposing);
         }
 
-        private void IsSaveImageEnabledChanged(object sender, EventArgs e)
+        private void ActionBarChanged(object sender, EventArgs e)
         {            
             InvalidateOptionsMenu();            
         }
@@ -39,22 +41,33 @@ namespace Wallpaper.Droid.Views
         {
             MenuInflater.Inflate(Resource.Menu.top_menus, menu);
             var saveButton = menu.FindItem(Resource.Id.menu_save);
+            var setWallpaperButton = menu.FindItem(Resource.Id.menu_setwallpaper);
             saveButton.SetEnabled(ViewModel.IsSaveImageEnabled);
+            setWallpaperButton.SetEnabled(ViewModel.IsSetWallpaperEnabled);
             return base.OnCreateOptionsMenu(menu);
         }
 
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
             var saveButton = menu.FindItem(Resource.Id.menu_save);
+            var setWallpaperButton = menu.FindItem(Resource.Id.menu_setwallpaper);
 
-            //change icon if button is not enabled
+            //change icon if button is not enabled for save button
             var icon = GetDrawable(Resource.Drawable.ic_save_black_24dp);
             if (!saveButton.IsEnabled)
             {
                 icon.Mutate().SetColorFilter(Color.Rgb(150, 150, 150), PorterDuff.Mode.SrcIn);
-            }
-
+            }        
             saveButton.SetIcon(icon);
+
+            //change icon if button is not enabled for set wallpaper button
+            icon = GetDrawable(Resource.Drawable.ic_wallpaper_black_24dp);
+            if (!setWallpaperButton.IsEnabled)
+            {
+                icon.Mutate().SetColorFilter(Color.Rgb(150, 150, 150), PorterDuff.Mode.SrcIn);
+            }
+            setWallpaperButton.SetIcon(icon);
+
             return base.OnPrepareOptionsMenu(menu);
         }
 
@@ -80,7 +93,8 @@ namespace Wallpaper.Droid.Views
         protected override void OnDestroy()
         {            
             base.OnDestroy();
-            _eventSubscription.Dispose();
+            _eventSubscriptionIsSaveImageEnabled.Dispose();
+            _eventSubscriptionIsSetWallpaperEnabled.Dispose();
         }
     }
 }

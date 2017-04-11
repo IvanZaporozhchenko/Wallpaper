@@ -7,10 +7,9 @@ using Wallpaper.Services;
 
 namespace Wallpaper.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class MainViewModel : MvxViewModel
     {        
-        private readonly IImageService _imageUrlGetter;
-        private List<ImageItemViewModel> _images;
+        private readonly IImageService _imageUrlGetter;        
         private ICommand _imageChooseCommand;
         
         public MainViewModel(IImageService imageUrlGetter)
@@ -19,6 +18,7 @@ namespace Wallpaper.ViewModels
             Images = _imageUrlGetter.GetImageViewModels().ToList();
         }
 
+        private List<ImageItemViewModel> _images;
         public List<ImageItemViewModel> Images
         {
             get { return _images; }
@@ -45,9 +45,9 @@ namespace Wallpaper.ViewModels
 
         private void ChooseImage(ImageItemViewModel imageItemViewModel)
         {
-            ShowViewModel<OneImageViewModel, ImageParameters>(new ImageParameters
+            ShowViewModel<OneImageViewModel>(new ImageParameters
                 {
-                    ImageData = imageItemViewModel.ImageData,
+                    ImageUrl = imageItemViewModel.ImageUrl,
                     Index = Images.IndexOf(imageItemViewModel)
                 });
         }

@@ -1,18 +1,16 @@
 ﻿using MvvmCross.Core.ViewModels;
 using System.Windows.Input;
 using Wallpaper.Services.Interfaces;
-using System.Linq;
 using Wallpaper.Infrastructure;
 
 namespace Wallpaper.ViewModels
 {
-    public class OneImageViewModel : BaseInitViewModel<ImageParameters>
+    public class OneImageViewModel : MvxViewModel
     {        
         private readonly IImageDownloaderService _imageDownloaderService;
         private readonly IUserInteractionService _userInteractionService;
         private readonly IOneImageActionBarService _oneImageActionBarService;
-
-        private string _imageUrl;
+        
         private int _index;
 
         private ICommand _saveImageCommand;
@@ -47,7 +45,21 @@ namespace Wallpaper.ViewModels
             {
                 SetProperty(ref _isSaveImageEnabled, value);                
             }
-        }        
+        }
+
+        private bool _isSetWallpaperEnabled;
+        public bool IsSetWallpaperEnabled
+        {
+            get
+            {
+                return _isSetWallpaperEnabled;
+            }
+
+            set
+            {
+                SetProperty(ref _isSetWallpaperEnabled, value);
+            }
+        }
 
         public OneImageViewModel(
             IImageDownloaderService imageDownloaderService,
@@ -67,23 +79,23 @@ namespace Wallpaper.ViewModels
             base.Start();
         }
 
-        protected override void RealInit(ImageParameters parameter)
+        public void Init(ImageParameters parameter)
         {
-            ImageData = parameter.ImageData.ToArray();
+            _imageDownloaderService.StartDownloadImageFromWeb(parameter.ImageUrl);
             _index = parameter.Index;
-            IsSaveImageEnabled = !_oneImageActionBarService.IsImageExist(_index);
         }
 
         private void SetWallpaper()
-        {
+        {            
             _oneImageActionBarService.SetWallpaper(ImageData);
-            _userInteractionService.ShowMessage("Wallpaper is setted!");
+            _userInteractionService.ShowMessage("Wallpaper is set!");
         }
 
         private void ImageDownloaded(object sender, DownloadCompletedEventHandlerArgs args)
         {
             ImageData = args.ResultStream.ToArray();
-            IsSaveImageEnabled = !_oneImageActionBarService.IsImageExist(_index);            
+            IsSaveImageEnabled = !_oneImageActionBarService.IsImageExist(_index);
+            IsSetWallpaperEnabled = true;
         }
 
         private void SaveImage()
