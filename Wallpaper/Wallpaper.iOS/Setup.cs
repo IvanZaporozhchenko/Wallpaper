@@ -17,10 +17,10 @@ namespace Wallpaper.iOS
             : base(applicationDelegate, presenter)
         {
         }
-
+    
         protected override IMvxApplication CreateApp()
         {
-            return new Core.App();
+            return new App();
         }
         
         protected override IMvxTrace CreateDebugTrace()

@@ -157,7 +157,7 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
-    <InterfaceDefinition Include="Views\FirstView.xib" />
+    <InterfaceDefinition Include="Views\MainView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DebugTrace.cs" />
@@ -169,8 +169,8 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FirstView.cs" />
-    <Compile Include="Views\FirstView.designer.cs" />
+    <Compile Include="Views\MainView.cs" />
+    <Compile Include="Views\MainView.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppDelegate.cs.txt" />

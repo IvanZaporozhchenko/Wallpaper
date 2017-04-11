@@ -12,7 +12,7 @@ using UIKit;
 namespace Wallpaper.iOS.Views
 {
     [Register ("FirstView")]
-    partial class FirstView
+    partial class MainView
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
