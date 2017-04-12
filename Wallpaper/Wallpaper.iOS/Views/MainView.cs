@@ -14,8 +14,7 @@ namespace Wallpaper.iOS.Views
         {
             base.ViewDidLoad();
 
-            var set = this.CreateBindingSet<MainView, MainViewModel>();
-   
+            var set = this.CreateBindingSet<MainView, MainViewModel>();            
             set.Apply();
         }
     }

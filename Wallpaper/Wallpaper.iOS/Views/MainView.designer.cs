@@ -11,7 +11,7 @@ using UIKit;
 
 namespace Wallpaper.iOS.Views
 {
-    [Register ("FirstView")]
+    [Register ("MainView")]
     partial class MainView
     {
         [Outlet]

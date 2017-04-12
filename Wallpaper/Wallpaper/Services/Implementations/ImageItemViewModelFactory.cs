@@ -8,7 +8,7 @@ namespace Wallpaper.Services.Implementations
     {
         public ImageItemViewModel Create(string imageUrl)
         {
-            return new ImageItemViewModel(Mvx.Resolve<IImageDownloaderService>(), imageUrl);
+            return new ImageItemViewModel(Mvx.Resolve<IImageDownloaderService>(), Mvx.Resolve<IImageResizeService>(), imageUrl);
         }
     }
 }

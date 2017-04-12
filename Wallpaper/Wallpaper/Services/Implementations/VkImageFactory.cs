@@ -6,7 +6,7 @@ using Wallpaper.ViewModels;
 
 namespace Wallpaper.Services.Implementations
 {
-    public class VkImageService : IImageService
+    public class VkImageFactory : IImageFactory
     {
         private readonly string[] _images480X800 =
         {
@@ -191,7 +191,7 @@ namespace Wallpaper.Services.Implementations
 
         private readonly IImageItemViewModelFactory _imageItemViewModelFactory;
 
-        public VkImageService(IScreenService screenService, IImageItemViewModelFactory imageItemViewModelFactory)
+        public VkImageFactory(IScreenService screenService, IImageItemViewModelFactory imageItemViewModelFactory)
         {
             _screenService = screenService;
             _imageItemViewModelFactory = imageItemViewModelFactory;

@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Wallpaper.Services.Interfaces;
 using Wallpaper.Infrastructure;
+using System.Threading.Tasks;
 
 namespace Wallpaper.ViewModels
 {
@@ -68,8 +69,7 @@ namespace Wallpaper.ViewModels
         {            
             _imageDownloaderService = imageDownloaderService;
             _userInteractionService = userInteractionService;
-            _oneImageActionBarService = oneImageActionBarService;
-            _imageDownloaderService.DownloadImageCompleted += ImageDownloaded;
+            _oneImageActionBarService = oneImageActionBarService;      
         }
 
         public override void Start()
@@ -80,22 +80,20 @@ namespace Wallpaper.ViewModels
         }
 
         public void Init(ImageParameters parameter)
-        {
-            _imageDownloaderService.StartDownloadImageFromWeb(parameter.ImageUrl);
+        {            
             _index = parameter.Index;
+            Task.Factory.StartNew(async () =>
+            {
+                ImageData = await _imageDownloaderService.DownloadImageFromWeb(parameter.ImageUrl);
+                IsSaveImageEnabled = !_oneImageActionBarService.IsImageExist(_index);
+                IsSetWallpaperEnabled = true;
+            });
         }
 
         private void SetWallpaper()
         {            
             _oneImageActionBarService.SetWallpaper(ImageData);
             _userInteractionService.ShowMessage("Wallpaper is set!");
-        }
-
-        private void ImageDownloaded(object sender, DownloadCompletedEventHandlerArgs args)
-        {
-            ImageData = args.ResultStream.ToArray();
-            IsSaveImageEnabled = !_oneImageActionBarService.IsImageExist(_index);
-            IsSetWallpaperEnabled = true;
         }
 
         private void SaveImage()
