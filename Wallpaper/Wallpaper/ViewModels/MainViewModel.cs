@@ -9,10 +9,10 @@ namespace Wallpaper.ViewModels
 {
     public class MainViewModel : MvxViewModel
     {        
-        private readonly IImageService _imageUrlGetter;        
+        private readonly IImageFactory _imageUrlGetter;        
         private ICommand _imageChooseCommand;
         
-        public MainViewModel(IImageService imageUrlGetter)
+        public MainViewModel(IImageFactory imageUrlGetter)
         {            
             _imageUrlGetter = imageUrlGetter;
             Images = _imageUrlGetter.GetImageViewModels().ToList();

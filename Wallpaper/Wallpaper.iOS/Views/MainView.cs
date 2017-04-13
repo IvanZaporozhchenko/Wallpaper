@@ -16,7 +16,6 @@ namespace Wallpaper.iOS
 		{
 			base.ViewDidLoad();
 			// Perform any additional setup after loading the view, typically from a nib.
-
 			var set = this.CreateBindingSet<MainView, ViewModels.MainViewModel>();
 			set.Apply();
 		}

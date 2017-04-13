@@ -10,7 +10,6 @@
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"     
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
+        android:scaleType="fitXY"        
         local:MvxBind="Bitmap ImageData,Converter=InMemoryImage"/>
 </LinearLayout>

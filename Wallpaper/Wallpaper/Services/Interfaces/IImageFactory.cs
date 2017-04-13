@@ -3,7 +3,7 @@ using Wallpaper.ViewModels;
 
 namespace Wallpaper.Services
 {
-    public interface IImageService
+    public interface IImageFactory
     {
         IEnumerable<ImageItemViewModel> GetImageViewModels();
     }

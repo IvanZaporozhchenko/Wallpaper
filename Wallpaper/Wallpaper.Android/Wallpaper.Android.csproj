@@ -127,6 +127,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AndroidImageDownloaderService.cs" />
     <Compile Include="Services\AndroidImageGaleryService.cs" />
+    <Compile Include="Services\AndroidImageResizeService.cs" />
     <Compile Include="Services\AndroidScreenService.cs" />
     <Compile Include="Services\AndroidUserInteraction.cs" />
     <Compile Include="Services\AndroidWallpaperService.cs" />
@@ -145,7 +146,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\image_item.axml" />
-    <AndroidResource Include="Resources\layout\OneImageView.axml" />
+    <AndroidResource Include="Resources\layout\OneImageView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

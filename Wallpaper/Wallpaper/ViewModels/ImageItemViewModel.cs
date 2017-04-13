@@ -1,11 +1,13 @@
 ﻿using MvvmCross.Core.ViewModels;
+using System.Threading.Tasks;
 using Wallpaper.Services.Interfaces;
 
 namespace Wallpaper.ViewModels
 {
     public class ImageItemViewModel : MvxViewModel
     {
-        private IImageDownloaderService _imageDownloaderService;
+        private readonly IImageDownloaderService _imageDownloaderService;
+        private readonly IImageResizeService _imageResizeService;
 
         private string _imageUrl;
         public string ImageUrl
@@ -17,8 +19,7 @@ namespace Wallpaper.ViewModels
 
             set
             {
-                SetProperty(ref _imageUrl, value);                
-                _imageDownloaderService.StartDownloadImageFromWeb(_imageUrl);
+                SetProperty(ref _imageUrl, value);
             }
         }
 
@@ -36,12 +37,24 @@ namespace Wallpaper.ViewModels
             }
         }
 
-        public ImageItemViewModel(IImageDownloaderService imageDownloaderService, string imageUrl)
+        public ImageItemViewModel(IImageDownloaderService imageDownloaderService, IImageResizeService imageResizeService, string imageUrl)
         {
             _imageDownloaderService = imageDownloaderService;
-            _imageDownloaderService.DownloadImageCompleted += ImageDownloaded;
+            _imageResizeService = imageResizeService;            
             ImageUrl = imageUrl;
-        }       
+            Task.Factory.StartNew(async () =>
+            {
+                await SetImageData(imageUrl);
+            });            
+        }
+
+        private async Task SetImageData(string imageUrl)
+        {
+            var originalImageData = await _imageDownloaderService.DownloadImageFromWeb(imageUrl);
+
+            //resize image to have better performance
+            ImageData = await _imageResizeService.ResizeImage(originalImageData, 2);
+        }
 
         public override bool Equals(object obj)
         {
@@ -65,11 +78,6 @@ namespace Wallpaper.ViewModels
         public override int GetHashCode()
         {
             return ImageUrl.GetHashCode();
-        }
-
-        private void ImageDownloaded(object sender, DownloadCompletedEventHandlerArgs args)
-        {
-            ImageData = args.ResultStream.ToArray();
-        }
+        }      
     }   
 }
