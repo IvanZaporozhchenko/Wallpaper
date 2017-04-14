@@ -10,27 +10,18 @@ using System.CodeDom.Compiler;
 
 namespace Wallpaper.iOS
 {
-    [Register ("ImageCell")]
-    partial class ImageCell
+    [Register ("ImageCollectionCell")]
+    partial class ImageCollectionCell
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView MainImage { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel MainLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
             if (MainImage != null) {
                 MainImage.Dispose ();
                 MainImage = null;
-            }
-
-            if (MainLabel != null) {
-                MainLabel.Dispose ();
-                MainLabel = null;
             }
         }
     }
