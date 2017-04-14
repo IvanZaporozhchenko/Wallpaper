@@ -1,24 +1,27 @@
 ﻿using System;
+using Foundation;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.Binding.iOS.Views;
 using MvvmCross.iOS.Views;
-using UIKit;
-
+using Wallpaper.ViewModels;
 
 namespace Wallpaper.iOS
 {
-	public partial class MainView : MvxViewController
+	[Register("MainView")]
+	public class MainView : MvxTableViewController
 	{
-		public MainView() : base("MainView", null)
-		{
-		}
-
 		public override void ViewDidLoad()
-		{
+		{			
 			base.ViewDidLoad();
-			// Perform any additional setup after loading the view, typically from a nib.
-			var set = this.CreateBindingSet<MainView, ViewModels.MainViewModel>();
+
+			var source = new MvxStandardTableViewSource(TableView, "ImageUrl ImageUrl");
+			TableView.Source = source;
+
+									var set = this.CreateBindingSet<MainView, MainViewModel>();
+			set.Bind(source).To(vm => vm.Images);
 			set.Apply();
+
+			TableView.ReloadData();
 		}
 	}
 }
-

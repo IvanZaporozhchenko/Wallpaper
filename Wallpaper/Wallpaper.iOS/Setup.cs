@@ -1,8 +1,11 @@
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
 using MvvmCross.iOS.Views.Presenters;
+using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
 using UIKit;
+using Wallpaper.Droid.Services;
+using Wallpaper.Services.Interfaces;
 
 namespace Wallpaper.iOS
 {
@@ -26,6 +29,17 @@ namespace Wallpaper.iOS
         protected override IMvxTrace CreateDebugTrace()
         {
             return new DebugTrace();
+        }
+
+		protected override void InitializeLastChance()
+		{
+			base.InitializeLastChance();
+			Mvx.RegisterType<IImageDownloaderService, IosImageDownloaderService>();
+			Mvx.RegisterType<IImageGalleryService, IosImageGaleryService>();
+			Mvx.RegisterType<IUserInteractionService, IosUserInteractionService>();
+			Mvx.RegisterType<IScreenService, IosScreenService>();
+			Mvx.RegisterType<IWallpaperService, IosWallpaperService>();
+			Mvx.RegisterType<IImageResizeService, IosImageResizeService>();
         }
     }
 }
