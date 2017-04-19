@@ -12,10 +12,10 @@ namespace Wallpaper.iOS
 	[Register("MainView")]
 	public class MainView : MvxCollectionViewController
 	{
-		private bool _isInitialized;
+		private readonly bool _isInitialized;
 
 		public MainView() : 
-			base(new UICollectionViewFlowLayout() 
+			base(new UICollectionViewFlowLayout 
 			{ 
 				ItemSize = new SizeF(50, 50),
 				MinimumInteritemSpacing = 5,
@@ -37,6 +37,7 @@ namespace Wallpaper.iOS
 			CollectionView.Source = source;
 
 			var set = this.CreateBindingSet<MainView, MainViewModel>();
+		    set.Bind(source).For(s=>s.SelectionChangedCommand).To(vm => vm.ImageChooseCommand);
 			set.Bind(source).To(vm => vm.Images);
 			set.Apply();
 
