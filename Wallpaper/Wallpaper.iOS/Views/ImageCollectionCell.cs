@@ -22,7 +22,7 @@ namespace Wallpaper.iOS
 
 		public ImageCollectionCell(IntPtr handle) : base(handle)
 		{
-			_loader = new MvxImageViewLoader(() => MainImage);
+			_loader = new MvxImageViewLoader(() => this.MainImage);
 
 			this.DelayBind(() =>
 			{

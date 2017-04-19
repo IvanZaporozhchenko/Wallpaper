@@ -15,9 +15,11 @@ namespace Wallpaper.iOS
 		private bool _isInitialized;
 
 		public MainView() : 
-			base(new UICollectionViewLayout() 
+			base(new UICollectionViewFlowLayout() 
 			{ 
-				ItemSize = new SizeF(240, 400)
+				ItemSize = new SizeF(50, 50),
+				MinimumInteritemSpacing = 5,
+				MinimumLineSpacing = 5
 			})
 		{
 			_isInitialized = true;
@@ -25,7 +27,7 @@ namespace Wallpaper.iOS
 
 		public sealed override void ViewDidLoad()
 		{
-			if (_isInitialized)
+			if (!_isInitialized)
 				return;
 			
 			base.ViewDidLoad();

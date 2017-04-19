@@ -1,3 +1,4 @@
+using UIKit;
 using Wallpaper.Services.Interfaces;
 
 namespace Wallpaper.Droid.Services
@@ -8,7 +9,7 @@ namespace Wallpaper.Droid.Services
         {
             get
             {
-				return 800;                                 
+				return (int) UIScreen.MainScreen.Bounds.Height;                                 
             }
         }        
 
@@ -16,7 +17,7 @@ namespace Wallpaper.Droid.Services
         {
             get
             {
-				return 480;             
+				return (int) UIScreen.MainScreen.Bounds.Width;
             }
         }
     }
