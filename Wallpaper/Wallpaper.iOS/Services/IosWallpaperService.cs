@@ -9,7 +9,7 @@ namespace Wallpaper.Droid.Services
     {
         public void SetWallpaper(Stream imageStream)
         {
-           
+			throw new NotImplementedException("It is not possible in iOS");
         }
     }
 }

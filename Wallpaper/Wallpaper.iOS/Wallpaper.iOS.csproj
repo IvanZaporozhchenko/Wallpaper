@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -107,6 +106,9 @@
     <Reference Include="MvvmCross.Plugins.DownloadCache.iOS">
       <HintPath>..\..\packages\MvvmCross.Plugin.DownloadCache.4.4.0\lib\Xamarin.iOS10\MvvmCross.Plugins.DownloadCache.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\..\Components\btprogresshud-1.20\lib\ios-unified\BTProgressHUD.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wallpaper\Wallpaper.csproj">
@@ -173,8 +175,8 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Views\ImageCell.xib" />
     <InterfaceDefinition Include="Views\ImageCollectionCell.xib" />
+    <InterfaceDefinition Include="Views\OneImageView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -187,8 +189,8 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Services\IosImageDownloaderService.cs" />
     <Compile Include="Services\IosImageGaleryService.cs" />
+    <Compile Include="Services\IosImageDownloaderService.cs" />
     <Compile Include="Services\IosImageResizeService.cs" />
     <Compile Include="Services\IosScreenService.cs" />
     <Compile Include="Services\IosUserInteraction.cs" />
@@ -196,19 +198,25 @@
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
-    <Compile Include="Views\ImageCell.cs" />
-    <Compile Include="Views\ImageCell.designer.cs">
-      <DependentUpon>ImageCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\MainView.cs" />
     <Compile Include="Views\ImageCollectionCell.cs" />
     <Compile Include="Views\ImageCollectionCell.designer.cs">
       <DependentUpon>ImageCollectionCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\OneImageView.cs" />
+    <Compile Include="Views\OneImageView.designer.cs">
+      <DependentUpon>OneImageView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="btprogresshud">
+      <Version>1.20</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

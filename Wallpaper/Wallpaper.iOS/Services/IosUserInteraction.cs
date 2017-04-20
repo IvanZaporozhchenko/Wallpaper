@@ -1,4 +1,5 @@
 
+using BigTed;
 using Wallpaper.Services.Interfaces;
 
 namespace Wallpaper.Droid.Services
@@ -7,7 +8,7 @@ namespace Wallpaper.Droid.Services
     {
         public void ShowMessage(string text)
         {
-            
-        }
+			BTProgressHUD.ShowToast(text, false);
+        }ß
     }
 }

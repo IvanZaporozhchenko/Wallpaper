@@ -4,7 +4,9 @@ using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.iOS.Views;
+using MvvmCross.Platform;
 using UIKit;
+using Wallpaper.Services.Interfaces;
 using Wallpaper.ViewModels;
 
 namespace Wallpaper.iOS
@@ -17,9 +19,9 @@ namespace Wallpaper.iOS
 		public MainView() : 
 			base(new UICollectionViewFlowLayout 
 			{ 
-				ItemSize = new SizeF(50, 50),
-				MinimumInteritemSpacing = 5,
-				MinimumLineSpacing = 5
+				ItemSize = new SizeF((Mvx.Resolve<IScreenService>().Width-8)/4, (Mvx.Resolve<IScreenService>().Height-8)/4),
+				MinimumInteritemSpacing = 2,
+				MinimumLineSpacing = 2
 			})
 		{
 			_isInitialized = true;

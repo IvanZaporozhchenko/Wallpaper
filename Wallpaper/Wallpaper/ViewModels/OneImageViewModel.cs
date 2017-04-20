@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Wallpaper.Services.Interfaces;
 using Wallpaper.Infrastructure;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Wallpaper.ViewModels
 {
@@ -20,6 +21,20 @@ namespace Wallpaper.ViewModels
         private ICommand _setWallpaperCommand;
         public ICommand SetWallpaperCommand => _setWallpaperCommand;
 
+		private string _imageUrl;
+		public string ImageUrl
+		{
+			get
+			{
+				return _imageUrl;
+			}
+
+			set
+			{
+				SetProperty(ref _imageUrl, value);
+			}
+		}  
+		
         private byte[] _imageData;
         public byte[] ImageData
         {
@@ -82,8 +97,10 @@ namespace Wallpaper.ViewModels
         public void Init(ImageParameters parameter)
         {            
             _index = parameter.Index;
+			ImageUrl = parameter.ImageUrl;
+			Debug.WriteLine(ImageUrl);
             Task.Factory.StartNew(async () =>
-            {
+            {				
                 ImageData = await _imageDownloaderService.DownloadImageFromWeb(parameter.ImageUrl);
                 IsSaveImageEnabled = !_oneImageActionBarService.IsImageExist(_index);
                 IsSetWallpaperEnabled = true;

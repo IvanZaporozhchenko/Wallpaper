@@ -7,30 +7,22 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
+using UIKit;
 
 namespace Wallpaper.iOS
 {
-    [Register ("ImageCell")]
-    partial class ImageCell
+    [Register ("OneImageView")]
+    partial class OneImageView
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView MainImage { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel MainLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
             if (MainImage != null) {
                 MainImage.Dispose ();
                 MainImage = null;
-            }
-
-            if (MainLabel != null) {
-                MainLabel.Dispose ();
-                MainLabel = null;
             }
         }
     }
