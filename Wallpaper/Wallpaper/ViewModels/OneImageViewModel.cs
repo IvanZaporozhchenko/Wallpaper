@@ -24,57 +24,33 @@ namespace Wallpaper.ViewModels
 		private string _imageUrl;
 		public string ImageUrl
 		{
-			get
-			{
-				return _imageUrl;
-			}
+			get => _imageUrl;
 
-			set
-			{
-				SetProperty(ref _imageUrl, value);
-			}
+		    set => SetProperty(ref _imageUrl, value);
 		}  
 		
         private byte[] _imageData;
         public byte[] ImageData
         {
-            get
-            {
-                return _imageData;
-            }
+            get => _imageData;
 
-            set
-            {
-                SetProperty(ref _imageData, value);
-            }
+            set => SetProperty(ref _imageData, value);
         }     
 
         private bool _isSaveImageEnabled;
         public bool IsSaveImageEnabled
         {
-            get
-            {
-                return _isSaveImageEnabled;
-            }
+            get => _isSaveImageEnabled;
 
-            set
-            {
-                SetProperty(ref _isSaveImageEnabled, value);                
-            }
+            set => SetProperty(ref _isSaveImageEnabled, value);
         }
 
         private bool _isSetWallpaperEnabled;
         public bool IsSetWallpaperEnabled
         {
-            get
-            {
-                return _isSetWallpaperEnabled;
-            }
+            get => _isSetWallpaperEnabled;
 
-            set
-            {
-                SetProperty(ref _isSetWallpaperEnabled, value);
-            }
+            set => SetProperty(ref _isSetWallpaperEnabled, value);
         }
 
         public OneImageViewModel(

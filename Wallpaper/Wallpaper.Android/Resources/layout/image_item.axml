@@ -4,10 +4,13 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <ImageView
-        android:layout_width="fill_parent"
+    <Mvx.MvxImageView
+        android:id="@+id/item_image"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="120px"
+        android:maxHeight="200px"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        local:MvxBind="Bitmap ImageData,Converter=InMemoryImage" />
+        local:MvxBind="ImageUrl ImageUrl" />
 </LinearLayout>

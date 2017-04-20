@@ -123,6 +123,7 @@
     <Compile Include="Bootstrap\PictureChooserPluginBootstrap.cs" />
     <Compile Include="DebugTrace.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="MvxImageViewFourColumnsAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AndroidImageDownloaderService.cs" />

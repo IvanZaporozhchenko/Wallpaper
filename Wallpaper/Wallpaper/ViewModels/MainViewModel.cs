@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using Wallpaper.Infrastructure;
-using Wallpaper.Services;
+using Wallpaper.Services.Interfaces;
 
 namespace Wallpaper.ViewModels
 {
     public class MainViewModel : MvxViewModel
-    {        
-        private readonly IImageFactory _imageUrlGetter;        
+    {
         private ICommand _imageChooseCommand;
         
         public MainViewModel(IImageFactory imageUrlGetter)
-        {            
-            _imageUrlGetter = imageUrlGetter;
-            Images = _imageUrlGetter.GetImageViewModels().ToList();
+        {
+            Images = imageUrlGetter.GetImageViewModels().ToList();
         }
 
         private List<ImageItemViewModel> _images;
         public List<ImageItemViewModel> Images
         {
-            get { return _images; }
+            get => _images;
             set
             {
                 _images = value;
@@ -35,13 +33,7 @@ namespace Wallpaper.ViewModels
             base.Start();
         }
 
-        public ICommand ImageChooseCommand
-        {
-            get
-            {
-                return _imageChooseCommand;
-            }
-        }       
+        public ICommand ImageChooseCommand => _imageChooseCommand;
 
         private void ChooseImage(ImageItemViewModel imageItemViewModel)
         {

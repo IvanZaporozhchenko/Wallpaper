@@ -189,12 +189,9 @@ namespace Wallpaper.Services.Implementations
 
         private readonly IScreenService _screenService;
 
-        private readonly IImageItemViewModelFactory _imageItemViewModelFactory;
-
-        public VkImageFactory(IScreenService screenService, IImageItemViewModelFactory imageItemViewModelFactory)
+        public VkImageFactory(IScreenService screenService)
         {
             _screenService = screenService;
-            _imageItemViewModelFactory = imageItemViewModelFactory;
         }
 
         public IEnumerable<ImageItemViewModel> GetImageViewModels()
@@ -203,26 +200,26 @@ namespace Wallpaper.Services.Implementations
             var screenHeight = _screenService.Height;
             if (screenWidth == 480 && screenHeight == 800)
             {
-                return _images480X800.Select(i => _imageItemViewModelFactory.Create(i));
+                return _images480X800.Select(i => new ImageItemViewModel{ ImageUrl = i});
             }
 
             if (screenWidth == 768 && screenHeight == 1280)
             {
-                return _images768x1280.Select(i => _imageItemViewModelFactory.Create(i));
+                return _images768x1280.Select(i => new ImageItemViewModel { ImageUrl = i });
             }
 
             if (screenWidth == 720 && screenHeight == 1280)
             {
-                return _images720x1280.Select(i => _imageItemViewModelFactory.Create(i));
+                return _images720x1280.Select(i => new ImageItemViewModel { ImageUrl = i });
             }
 
             var aspectRatio = (double) screenHeight / (double) screenWidth;
             if (Math.Abs(aspectRatio - 1.667) > Math.Abs(aspectRatio - 1.778))
             {
-                return _images720x1280.Select(i => _imageItemViewModelFactory.Create(i));
+                return _images720x1280.Select(i => new ImageItemViewModel { ImageUrl = i });
             }
             
-            return _images768x1280.Select(i => _imageItemViewModelFactory.Create(i));
+            return _images768x1280.Select(i => new ImageItemViewModel { ImageUrl = i });
         }
     }
 

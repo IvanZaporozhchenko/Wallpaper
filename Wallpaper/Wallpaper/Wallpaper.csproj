@@ -34,12 +34,10 @@
     <Compile Include="App.cs" />
     <Compile Include="Infrastructure\ImageParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Implementations\ImageItemViewModelFactory.cs" />
     <Compile Include="Services\Implementations\OneImageActionBarService.cs" />
     <Compile Include="Services\Implementations\VkImageFactory.cs" />
     <Compile Include="Services\Interfaces\IImageDownloaderService.cs" />
     <Compile Include="Services\Interfaces\IImageGalleryService.cs" />
-    <Compile Include="Services\Interfaces\IImageItemViewModelFactory.cs" />
     <Compile Include="Services\Interfaces\IImageResizeService.cs" />
     <Compile Include="Services\Interfaces\IImageFactory.cs" />
     <Compile Include="Services\Interfaces\IOneImageActionBarService.cs" />
