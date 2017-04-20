@@ -1,9 +1,8 @@
-
 using System;
 using System.IO;
 using Wallpaper.Services.Interfaces;
 
-namespace Wallpaper.Droid.Services
+namespace Wallpaper.iOS.Services
 {
     public class IosWallpaperService : IWallpaperService
     {

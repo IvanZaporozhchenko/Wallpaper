@@ -1,9 +1,8 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
 using Wallpaper.Services.Interfaces;
 
-namespace Wallpaper.iOS
+namespace Wallpaper.iOS.Services
 {
 	public class IosImageDownloaderService : IImageDownloaderService
 	{
