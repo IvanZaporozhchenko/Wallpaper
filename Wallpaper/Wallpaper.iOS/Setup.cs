@@ -4,7 +4,6 @@ using MvvmCross.iOS.Views.Presenters;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
 using UIKit;
-using Wallpaper.Droid.Services;
 using Wallpaper.iOS.Services;
 using Wallpaper.Services.Interfaces;
 

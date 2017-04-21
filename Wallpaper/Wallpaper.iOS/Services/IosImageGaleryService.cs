@@ -1,6 +1,6 @@
 using Wallpaper.Services.Interfaces;
 
-namespace Wallpaper.Droid.Services
+namespace Wallpaper.iOS.Services
 {
     public class IosImageGaleryService : IImageGalleryService
     {

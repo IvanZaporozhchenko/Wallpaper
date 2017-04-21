@@ -1,9 +1,7 @@
-using System.IO;
-using Wallpaper.Services.Interfaces;
 using System.Threading.Tasks;
+using Wallpaper.Services.Interfaces;
 
-
-namespace Wallpaper.Droid.Services
+namespace Wallpaper.iOS.Services
 {
     public class IosImageResizeService : IImageResizeService
     {
