@@ -29,7 +29,8 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignEntitlements></CodesignEntitlements>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
@@ -54,7 +55,8 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignEntitlements></CodesignEntitlements>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
     <MtouchProfiling>true</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
@@ -191,7 +193,6 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Services\IosImageGaleryService.cs" />
     <Compile Include="Services\IosImageDownloaderService.cs" />
-    <Compile Include="Services\IosImageResizeService.cs" />
     <Compile Include="Services\IosScreenService.cs" />
     <Compile Include="Services\IosUserInteraction.cs" />
     <Compile Include="Services\IosWallpaperService.cs" />
@@ -208,10 +209,7 @@
       <DependentUpon>OneImageView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <XamarinComponentReference Include="btprogresshud">
       <Version>1.20</Version>

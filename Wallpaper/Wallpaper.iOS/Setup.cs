@@ -39,7 +39,6 @@ namespace Wallpaper.iOS
 			Mvx.RegisterType<IUserInteractionService, IosUserInteractionService>();
 			Mvx.RegisterType<IScreenService, IosScreenService>();
 			Mvx.RegisterType<IWallpaperService, IosWallpaperService>();
-			Mvx.RegisterType<IImageResizeService, IosImageResizeService>();
         }
     }
 }

@@ -38,7 +38,6 @@
     <Compile Include="Services\Implementations\VkImageFactory.cs" />
     <Compile Include="Services\Interfaces\IImageDownloaderService.cs" />
     <Compile Include="Services\Interfaces\IImageGalleryService.cs" />
-    <Compile Include="Services\Interfaces\IImageResizeService.cs" />
     <Compile Include="Services\Interfaces\IImageFactory.cs" />
     <Compile Include="Services\Interfaces\IOneImageActionBarService.cs" />
     <Compile Include="Services\Interfaces\IUserInteractionService.cs" />
