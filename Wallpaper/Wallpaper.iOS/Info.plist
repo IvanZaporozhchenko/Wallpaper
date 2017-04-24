@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Wallpaper.iOS</string>
+	<string>ChristmasWallpaper</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.Wallpaper.iOS</string>
+	<string>com.imdev.ChristmasWallpaper</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -45,7 +45,7 @@
 	<key>XSLaunchImageAssets</key>
 	<string>Resources/Images.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleName</key>
-	<string>Wallpaper.iOS</string>
+	<string>ChristmasWallpaper</string>
 	<key>UIMainNibFile</key>
 	<string>MainView</string>
 </dict>
