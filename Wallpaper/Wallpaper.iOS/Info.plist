@@ -46,7 +46,5 @@
 	<string>ChristmasWallpaper</string>
 	<key>UIMainNibFile</key>
 	<string>MainView</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>MainView</string>
 </dict>
 </plist>
