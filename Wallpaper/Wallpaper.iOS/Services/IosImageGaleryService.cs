@@ -30,7 +30,6 @@ namespace Wallpaper.iOS.Services
 			{
 				var nsData = NSData.FromArray(imageData);
 				var uiImage = UIImage.LoadFromData(nsData);
-				var meta = new NSDictionary("UIImagePickerControllerMediaMetadata", fileName);
 				var library = new ALAssetsLibrary();
 				library.WriteImageToSavedPhotosAlbum (uiImage.CGImage, null, (assetUrl, error) =>{
         			Console.WriteLine ("assetUrl:"+assetUrl);
