@@ -187,6 +187,50 @@ namespace Wallpaper.Services.Implementations
             "https://pp.vk.me/c629324/v629324456/1f02a/0ayszbUGOVY.jpg"
         };
 
+		private readonly string[] _images750x1334 =
+		{
+			"https://pp.userapi.com/c837421/v837421956/3d05f/4IqeGSuWIt8.jpg",
+			"https://pp.userapi.com/c837421/v837421956/3d069/qP1MhVWkMS0.jpg",
+			"https://pp.userapi.com/c837421/v837421956/3d073/8NtEZNXs8Ok.jpg",
+			"https://pp.userapi.com/c837421/v837421956/3d07d/NfTN-HaA5qE.jpg",
+			"https://pp.userapi.com/c837421/v837421956/3d09b/G0SH-J5bCVg.jpg",
+			"https://pp.userapi.com/c837421/v837421956/3d0a5/ZAJWAsjSWbo.jpg",
+			"https://pp.userapi.com/c837421/v837421956/3d0af/OYPhv14_Yxc.jpg",
+			"https://pp.userapi.com/c837421/v837421956/3d0b9/j0keyGzPHps.jpg",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+		}
+
         private readonly IScreenService _screenService;
 
         public VkImageFactory(IScreenService screenService)

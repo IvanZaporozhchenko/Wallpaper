@@ -74,6 +74,7 @@ namespace Wallpaper.ViewModels
         {            
             _index = parameter.Index;
 			ImageUrl = parameter.ImageUrl;
+			IsSaveImageEnabled = false;
 			Debug.WriteLine(ImageUrl);
             Task.Factory.StartNew(async () =>
             {				

@@ -113,5 +113,10 @@ namespace Wallpaper.iOS
         {
             changed.PropertyChanged += (sender, e) => { var test = e.PropertyName; };
         }
+
+		public void IncludeEnabled(UIBarButtonItem button)
+		{
+			button.Enabled = !button.Enabled;
+		}
     }
 }

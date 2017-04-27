@@ -11,17 +11,8 @@ namespace Wallpaper.iOS.Services
     public class IosImageGaleryService : IImageGalleryService
     {
         public bool IsImageExist(string fileName)
-        {           
-            try
-            {
-                return File.Exists(fileName);
-            }
-            catch (Exception ex)
-            {
-				Console.WriteLine(ex.Message);
-            }
-
-            return true;
+        {
+			return false;
         }
 
         public void SaveImageToLibrary(string fileName, byte[] imageData)
@@ -31,7 +22,7 @@ namespace Wallpaper.iOS.Services
 				var nsData = NSData.FromArray(imageData);
 				var uiImage = UIImage.LoadFromData(nsData);
 				var library = new ALAssetsLibrary();
-				library.WriteImageToSavedPhotosAlbum (uiImage.CGImage, null, (assetUrl, error) =>{
+				library.WriteImageToSavedPhotosAlbum (uiImage.CGImage, new NSDictionary(), (assetUrl, error) =>{
         			Console.WriteLine ("assetUrl:"+assetUrl);
     			});
 			}

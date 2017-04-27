@@ -27,6 +27,7 @@ namespace Wallpaper.iOS
 			var set = this.CreateBindingSet<OneImageView, OneImageViewModel>();
 			set.Bind(_loader).To(vm => vm.ImageUrl);
 			set.Bind(_rightBarButton).For("Clicked").To(vm => vm.SaveImageCommand);
+			set.Bind(_rightBarButton).For(b => b.Enabled).To(vm => vm.IsSaveImageEnabled);
 			set.Apply();
 		}
 	}

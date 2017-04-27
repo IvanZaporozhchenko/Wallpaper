@@ -19,7 +19,7 @@ namespace Wallpaper.iOS
 		public MainView() : 
 			base(new UICollectionViewFlowLayout 
 			{ 
-				ItemSize = new SizeF((Mvx.Resolve<IScreenService>().Width-8)/4, (Mvx.Resolve<IScreenService>().Height-8)/4),
+				ItemSize = new SizeF(((float) UIScreen.MainScreen.Bounds.Width-8)/4, ((float)UIScreen.MainScreen.Bounds.Height - 8) / 4),
 				MinimumInteritemSpacing = 2,
 				MinimumLineSpacing = 2
 			})
