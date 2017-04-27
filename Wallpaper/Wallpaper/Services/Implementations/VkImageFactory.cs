@@ -187,49 +187,69 @@ namespace Wallpaper.Services.Implementations
             "https://pp.vk.me/c629324/v629324456/1f02a/0ayszbUGOVY.jpg"
         };
 
-		private readonly string[] _images750x1334 =
-		{
-			"https://pp.userapi.com/c837421/v837421956/3d05f/4IqeGSuWIt8.jpg",
-			"https://pp.userapi.com/c837421/v837421956/3d069/qP1MhVWkMS0.jpg",
-			"https://pp.userapi.com/c837421/v837421956/3d073/8NtEZNXs8Ok.jpg",
-			"https://pp.userapi.com/c837421/v837421956/3d07d/NfTN-HaA5qE.jpg",
-			"https://pp.userapi.com/c837421/v837421956/3d09b/G0SH-J5bCVg.jpg",
-			"https://pp.userapi.com/c837421/v837421956/3d0a5/ZAJWAsjSWbo.jpg",
-			"https://pp.userapi.com/c837421/v837421956/3d0af/OYPhv14_Yxc.jpg",
-			"https://pp.userapi.com/c837421/v837421956/3d0b9/j0keyGzPHps.jpg",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-		}
+        private readonly string[] _images750x1334 =
+        {
+            "https://pp.userapi.com/c837421/v837421956/3d05f/4IqeGSuWIt8.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d069/qP1MhVWkMS0.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d073/8NtEZNXs8Ok.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d07d/NfTN-HaA5qE.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d09b/G0SH-J5bCVg.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0a5/ZAJWAsjSWbo.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0af/OYPhv14_Yxc.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0b9/j0keyGzPHps.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0c3/IMTtBx_crrk.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0cd/WLoziRJR6fY.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0d7/3LqQ_Ij7_xM.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0e1/KU5rdu7pS4A.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0eb/Z-OVuz9vZzc.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0f5/G8APFjg-hoo.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d0ff/RsXYypy5Z_8.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d109/el99waAUrpk.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d113/JMVNrA2Fe4A.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d11d/xdpKbr7nCpo.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d127/Puc7w_lJcTg.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d131/zxFOV0T9j-M.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d13b/C4cBKuMx8oU.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d145/e05TlC3Eorw.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d14f/O9insRNqp0A.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d159/E7TFisKS95E.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d163/B75VmukRmHM.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d16d/5Ucn2ZObHGQ.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d177/BM_-ZDgxlSk.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d181/kjOJmB7bl5s.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d18b/WsO8TpBIY7E.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d195/9SRZSDXEnNM.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d19f/8XU6ZMWFW2s.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1a9/479oD4RcW9M.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1b3/UPlP8OAEI78.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1bd/haBKDQbjrRE.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1c7/zOcvetKG4fI.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1d1/mB4yhUQ4OjI.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1db/SRpPRLPn0W0.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1e5/nmFBgq7JYpg.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1ef/f2okR_Lrjjo.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d1f9/sgV-mpD-Owc.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d203/odXmG60dt6k.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d20d/r0Qic68ssJM.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d217/_gRE1Nc9TnM.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d221/2VFSJYBTBHE.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d22b/L3meEb8meA0.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d235/rCIpb0T6vFA.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d23f/Wf6F9U_V1tg.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d249/hqIs7TAQmmA.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d253/eBvsz59frkI.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d25d/Xsu9MIBmBJs.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d267/lPXDuNwtLYk.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d271/l00RdB7TLQM.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d27b/J9iGNxFjCZw.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d285/ms3rUKrF3S4.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d28f/U0V9he0xlSE.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d299/9jwGszuH8O0.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d2a3/XhUUNqMd5Bo.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d2ad/BOoAe3PhA7c.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d2b7/bL2G_yoiIx4.jpg",
+            "https://pp.userapi.com/c837421/v837421956/3d05f/4IqeGSuWIt8.jpg",
+        };
 
         private readonly IScreenService _screenService;
 
@@ -257,10 +277,15 @@ namespace Wallpaper.Services.Implementations
                 return _images720x1280.Select(i => new ImageItemViewModel { ImageUrl = i });
             }
 
+            if (screenWidth == 750 && screenHeight == 1334)
+            {
+                return _images720x1280.Select(i => new ImageItemViewModel { ImageUrl = i });
+            }
+
             var aspectRatio = (double) screenHeight / (double) screenWidth;
             if (Math.Abs(aspectRatio - 1.667) > Math.Abs(aspectRatio - 1.778))
             {
-                return _images720x1280.Select(i => new ImageItemViewModel { ImageUrl = i });
+                return _images750x1334.Select(i => new ImageItemViewModel { ImageUrl = i });
             }
             
             return _images768x1280.Select(i => new ImageItemViewModel { ImageUrl = i });
